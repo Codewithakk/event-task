@@ -36,7 +36,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     const login = async (values: LoginFormValues) => {
         const response = await apiLogin(values);
-        localStorage.setItem('token', response.data.accessToken);
+        localStorage.setItem('token', response.data.access_token);
         setUser(response.data.user);
     };
 
@@ -46,7 +46,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             email: values.email,
             password: values.password,
         });
-        localStorage.setItem('token', response.data.accessToken);
+        localStorage.setItem('token', response.data.access_token);
         setUser(response.data.user);
     };
 

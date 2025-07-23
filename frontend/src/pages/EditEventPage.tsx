@@ -4,6 +4,9 @@ import { getEvent, updateEvent } from '../api/api';
 import EventForm from '../components/EventForm';
 import { EventFormValues } from '../types/event';
 import { useAuth } from '../context/AuthContext';
+import '../styles/global.css';
+import '../styles/event.css';
+import '../styles/form.css';
 
 const EditEventPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -79,22 +82,24 @@ const EditEventPage: React.FC = () => {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    if (loading) return <div className="loading">Loading...</div>;
+    if (error) return <div className="error">{error}</div>;
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="mb-6">
-                <Link to={`/events/${id}`} className="text-blue-600 hover:text-blue-800">
+        <div className="container event-edit-container">
+            <div className="form-navigation">
+                <Link to={`/events/${id}`} className="back-link">
                     &larr; Back to Event
                 </Link>
             </div>
 
-            <h1 className="text-3xl font-bold mb-8">Edit Event</h1>
+            <div className="form-header">
+                <h1 className="form-title">Edit Event</h1>
+            </div>
 
-            {error && <div className="text-red-500 mb-4">{error}</div>}
+            {error && <div className="auth-error">{error}</div>}
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="form-container">
                 <EventForm
                     initialValues={initialValues}
                     onSubmit={handleSubmit}

@@ -1,0 +1,105 @@
+/* Navbar container */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Layout */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand link */
+.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #3182ce;
+    /* Primary blue */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #4a5568;
+    /* Gray on hover */
+}
+
+/* Navbar items container */
+.navbar-items {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.navbar-greeting {
+    color: #2d3748;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+
+.navbar-button {
+    padding: 0.45rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-button:hover {
+    color: #e2e8f0;
+}
+
+/* Specific buttons */
+.navbar-button-login {
+    background-color: #3182ce;
+}
+
+.navbar-button-login:hover {
+    background-color: #2c5282;
+}
+
+.navbar-button-register {
+    background-color: #38a169;
+}
+
+.navbar-button-register:hover {
+    background-color: #2f855a;
+}
+
+.navbar-button-logout {
+    background-color: #e53e3e;
+}
+
+.navbar-button-logout:hover {
+    background-color: #c53030;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-items {
+        margin-top: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .navbar-greeting {
+        margin-right: 0;
+    }
+}

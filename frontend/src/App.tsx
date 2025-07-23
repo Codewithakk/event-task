@@ -9,6 +9,13 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
+import './App.css'; // Assuming you have a global CSS file
+import './index.css'; // Tailwind CSS styles
+import './styles/event.css';
+import './styles/user.css';
+import './styles/form.css';
+import './styles/pagination.css';
+import './styles/global.css';
 
 const App: React.FC = () => {
   return (

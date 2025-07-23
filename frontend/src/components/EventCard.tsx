@@ -2,44 +2,67 @@ import React from 'react';
 import { Event } from '../types/event';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
+import '../styles/event-card.css';
 
-interface EventCardProps {
-    event: Event;
+// ✅ Correct props type
+export interface EventCardProps {
+    event: Event & { isOwner?: boolean };
+    showActions?: boolean; // declared
 }
 
-const EventCard: React.FC<EventCardProps> = ({ event }) => {
+export const EventCard: React.FC<EventCardProps> = ({ event, showActions }) => {
     return (
-        <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="event-card">
             {event.images.length > 0 && (
                 <img
                     src={`http://localhost:3000/uploads/${event.images[0]}`}
                     alt={event.name}
-                    className="w-full h-48 object-cover"
+                    className="event-card-image"
                 />
             )}
-            <div className="p-4">
-                <h3 className="text-xl font-bold mb-2">{event.name}</h3>
-                <p className="text-gray-600 mb-2 line-clamp-2">{event.description}</p>
-                <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-500">
+
+            <div className="event-card-content">
+                <h3 className="event-card-title">{event.name}</h3>
+                <p className="event-card-description">{event.description}</p>
+
+                <div className="event-card-meta">
+                    <span>
                         {format(new Date(event.startDate), 'MMM dd, yyyy')} -{' '}
                         {format(new Date(event.endDate), 'MMM dd, yyyy')}
                     </span>
-                    {event.totalGuests && (
-                        <span className="text-sm text-gray-500">{event.totalGuests} guests</span>
-                    )}
+                    {event.totalGuests && <span>{event.totalGuests} guests</span>}
                 </div>
-                <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-700">
+
+                <div className="event-card-organizer">
+                    <span className="event-card-organizer-name">
                         Organized by: {event.organizer.name}
                     </span>
-                    <Link
-                        to={`/events/${event.id}`}
-                        className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                    >
-                        View Details
-                    </Link>
                 </div>
+
+                <Link to={`/events/${event.id}`} className="event-card-link">
+                    View Details
+                </Link>
+
+                {/* ✅ Conditionally render owner actions */}
+                {showActions && (
+                    <div className="event-card-actions">
+                        <Link
+                            to={`/events/${event.id}/edit`}
+                            className="btn btn-small btn-edit"
+                        >
+                            Edit
+                        </Link>
+                        <button
+                            className="btn btn-small btn-delete"
+                            onClick={() => {
+                                // TODO: hook up delete logic
+                                alert(`Delete event #${event.id}`);
+                            }}
+                        >
+                            Delete
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

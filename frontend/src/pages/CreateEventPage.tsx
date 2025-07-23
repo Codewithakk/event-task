@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { createEvent } from '../api/api';
 import EventForm from '../components/EventForm';
 import { EventFormValues } from '../types/event';
+import '../styles/global.css';
+import '../styles/event.css';
+import '../styles/form.css';
 
 const CreateEventPage: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +32,13 @@ const CreateEventPage: React.FC = () => {
             formData.append('description', values.description);
             formData.append('startDate', values.startDate?.toISOString() || '');
             formData.append('endDate', values.endDate?.toISOString() || '');
-            if (values.totalGuests) formData.append('totalGuests', values.totalGuests.toString());
+            if (values.totalGuests) {
+                const totalGuestsNumber = Number(values.totalGuests);
+                if (!isNaN(totalGuestsNumber)) {
+                    formData.append('totalGuests', totalGuestsNumber.toString());
+                }
+            }
+
             if (values.category) formData.append('category', values.category);
             if (values.images) {
                 Array.from(values.images).forEach((file) => {
@@ -47,18 +56,20 @@ const CreateEventPage: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="mb-6">
-                <Link to="/" className="text-blue-600 hover:text-blue-800">
+        <div className="container section">
+            <div className="form-navigation">
+                <Link to="/" className="back-link">
                     &larr; Back to Events
                 </Link>
             </div>
 
-            <h1 className="text-3xl font-bold mb-8">Create New Event</h1>
+            <div className="form-header">
+                <h1 className="form-title">Create New Event</h1>
+            </div>
 
-            {error && <div className="text-red-500 mb-4">{error}</div>}
+            {error && <div className="auth-error">{error}</div>}
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="form-container">
                 <EventForm
                     initialValues={initialValues}
                     onSubmit={handleSubmit}
