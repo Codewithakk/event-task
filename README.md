@@ -151,28 +151,7 @@ src/
 4. **Security**:
    - JWT tokens expire after 1 hour
    - Passwords are hashed before storage
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Database Connection Errors**:
-   - Verify `.env` credentials
-   - Check if database server is running
-   - For Neon, ensure SSL is configured
-
-2. **Authentication Problems**:
-   - Check token expiration
-   - Verify JWT secret matches between frontend/backend
-
-3. **Image Upload Failures**:
-   - Ensure uploads directory exists
-   - Check file size limits (default: 5MB)
-
-### Error Messages
-
-| Error | Solution |
-|-------|----------|
+----------|
 | "Database connection failed" | Check database credentials and connection |
 | "Invalid or expired token" | Re-login to get new token |
 | "Only event owner can perform this action" | Verify user permissions |
