@@ -7,8 +7,6 @@
 4. [Setup Instructions](#setup-instructions)
 5. [API Documentation](#api-documentation)
 6. [Assumptions](#assumptions)
-7. [Troubleshooting](#troubleshooting)
-8. [Future Enhancements](#future-enhancements)
 
 ## System Overview
 
