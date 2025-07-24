@@ -1,5 +1,22 @@
 # Event Management System - Documentation
 
+# When creating the event, please leave the Total Guests blank, as they are causing an error.
+
+<img width="1877" height="970" alt="image" src="https://github.com/user-attachments/assets/c4401a98-927b-44a1-960a-f28f3cdbb279" />
+<img width="1862" height="952" alt="image" src="https://github.com/user-attachments/assets/64d75ac4-e0bd-43be-bc6f-ef619596254c" />
+<img width="1915" height="951" alt="image" src="https://github.com/user-attachments/assets/038fd49b-dc61-4d01-af22-bc3a10026375" />
+<img width="1870" height="971" alt="image" src="https://github.com/user-attachments/assets/067066e3-9427-4249-82c9-d3934ef17254" />
+<img width="1879" height="983" alt="image" src="https://github.com/user-attachments/assets/598d4a5e-af83-4bf0-ab43-65f9eb9c6b98" />
+<img width="1899" height="957" alt="image" src="https://github.com/user-attachments/assets/619c000c-77e2-4cbe-9120-cc7b63cda7c8" />
+<img width="1902" height="958" alt="image" src="https://github.com/user-attachments/assets/12d29933-e26c-4a32-9f2f-e296898541f3" />
+
+# if user has created the event the edit and delete only user can do
+<img width="1919" height="960" alt="image" src="https://github.com/user-attachments/assets/ca3bf5a9-3065-4296-b999-77142b8022a8" />
+<img width="1906" height="973" alt="image" src="https://github.com/user-attachments/assets/7d74221c-c621-4d22-ba6e-4c21768f513a" />
+<img width="1904" height="961" alt="image" src="https://github.com/user-attachments/assets/5f243148-aeb1-4902-b563-afc1293158f2" />
+
+
+
 ## Table of Contents
 1. [System Overview](#system-overview)
 2. [Architecture](#architecture)
